@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>簡易な見本</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="script.js"></script>
+</head>
+<body>
+  <h1>画像と文字をアップロードフォーム</h1>
+  <form id="uploadForm" enctype="multipart/form-data">
+    <label for="textInput">入力文字:</label>
+    <input type="text" name="textInput" id="textInput" placeholder="入力が要らない">
+	<br>
+    <label for="fileInput">入力画像:</label>
+    <input type="file" name="fileInput" id="fileInput">
+	<br>
+    <button type="submit">Upload</button>
+  </form>
+  <div id="output"></div>
+  
+</body>
+</html>
