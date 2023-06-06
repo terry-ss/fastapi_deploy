@@ -1,3 +1,6 @@
+from collections import defaultdict
+import sys 
+
 import uvicorn
 import numpy as np
 import cv2
@@ -24,8 +27,15 @@ app.add_middleware(
 )
 
 # ラベルの名前と推論モデルをローダ
-labeldict={0:"タイプ1",1:"タイプ2"}
-session = ort.InferenceSession("best.onnx")
+labeldict=defaultdict(int)
+types=["タイプ1","タイプ2"]
+for i,t in enumerate(types):
+    labeldict[i]=t
+    
+try:
+    session = ort.InferenceSession("best.onnx")
+except Exception as E:
+    sys.exit("モデルをロット失敗")
 
 
 # 典型的な推論部分
